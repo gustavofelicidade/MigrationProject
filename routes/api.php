@@ -18,3 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/clientes', 'ClientesController@create'); 
+
+Route::get('/users', 'UserController@show')->name('Users');
+
+Route::apiResource('emprestimos', 'EmprestimoController');
+
+Route::get('/emprestimos/{id}', 'EmprestimoController@show');
+
+

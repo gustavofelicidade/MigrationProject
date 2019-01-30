@@ -16,7 +16,20 @@ class CreateEmprestimosTable extends Migration
         Schema::create('emprestimos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('status');
+            $table->string('dataDeinicio');
+            $table->integer('idCliente')->unsigned()->nullable();
+            $table->integer('idLivro')->unsigned()->nullable();
         });
+
+        Schema::table('emprestimos', function (Blueprint $table) {
+        $table->foreign('idCliente')->references('id')->on('clientes')->onDelete('set null');
+        });
+
+        Schema::table('emprestimos', function (Blueprint $table) {
+        $table->foreign('idLivro')->references('id')->on('livros')->onDelete('set null');
+        });
+
     }
 
     /**
