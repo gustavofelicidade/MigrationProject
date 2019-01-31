@@ -11,28 +11,6 @@
 |
 */
 
-Route::get('/', function(){
-return "Olá EJCM!!!";
+Route::get('/', function () {
+    return view('welcome');
 });
-
-Route::get('servicos', function () {
-return "O serviço do Fulano é
-
-muito bom.<br><br>
-Gostou?<a href='".url('contato')."'>
-Esse é o contato dele.</a>";
-});
-
-Route::get('servicos/{id}', function ($id) { return "O serviço do
-".$id." é muito bom.";
-});
-
-
-
-
-
-
-
-
-
-
